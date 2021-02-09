@@ -1,0 +1,8 @@
+.TooltipContainer {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+}
