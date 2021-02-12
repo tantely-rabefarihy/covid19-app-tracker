@@ -7,6 +7,8 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { FormControl, InputLabel } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { Fragment } from "react";
+import { Footer } from "./Footer";
 
 const rounded = (num) => {
   if (num > 1000000000) {
@@ -62,91 +64,94 @@ const HomePage = () => {
     console.log(wrapperRef.current.focus());
   });
   return (
-    <Wrapper>
-      <CountryContainer>
-        <FormControl className={classes.formControl}>
-          <InputLabel className={classes.CountryLabel}>Country</InputLabel>
-          <Select
-            ref={wrapperRef}
-            className={classes.formControl}
-            value={formValue}
-            onChange={(e) => {
-              getSpecificCountry(e.target.value);
-            }}
-          >
-            {isLoading ? (
-              <MenuItem value=""></MenuItem>
-            ) : (
-              data?.map((item, index) => {
-                return (
-                  <MenuItem
-                    className={classes.MenuItem}
-                    key={index}
-                    value={item.country}
+    <Fragment>
+      <Wrapper>
+        <CountryContainer>
+          <FormControl className={classes.formControl}>
+            <InputLabel className={classes.CountryLabel}>Country</InputLabel>
+            <Select
+              ref={wrapperRef}
+              className={classes.formControl}
+              value={formValue}
+              onChange={(e) => {
+                getSpecificCountry(e.target.value);
+              }}
+            >
+              {isLoading ? (
+                <MenuItem value=""></MenuItem>
+              ) : (
+                data?.map((item, index) => {
+                  return (
+                    <MenuItem
+                      className={classes.MenuItem}
+                      key={index}
+                      value={item.country}
+                    >
+                      <Flag
+                        style={{ marginRight: "10px" }}
+                        src={item.countryInfo.flag}
+                        alt="flag"
+                      />
+                      {item.country}
+                    </MenuItem>
+                  );
+                })
+              )}
+            </Select>
+          </FormControl>
+
+          {country ? (
+            <CountryWrapper>
+              <ImgWrapper>
+                <Flag src={country?.countryInfo.flag} />
+                <div>{country?.country}</div>
+              </ImgWrapper>
+
+              <InfoBoxes>
+                <p>Last update : {dateUpdate}</p>
+                <CountryStats>
+                  <h3>
+                    Total cases :<br></br> {formatedNum(country?.cases)}
+                  </h3>
+                  <Stats className={country?.todayCases > 0 ? "red" : "green"}>
+                    +{todayCases}
+                  </Stats>
+                </CountryStats>
+                <CountryStats>
+                  <h3>
+                    Total deaths :<br></br> {formatedNum(country?.deaths)}
+                  </h3>
+                  <Stats className={country?.todayDeaths > 0 ? "red" : "green"}>
+                    +{todayDeaths}
+                  </Stats>
+                </CountryStats>
+                <CountryStats>
+                  <h3>
+                    Total recovered :<br></br> {formatedNum(country?.recovered)}
+                  </h3>
+                  <Stats
+                    className={country?.todayRecovered > 0 ? "green" : "red"}
                   >
-                    <Flag
-                      style={{ marginRight: "10px" }}
-                      src={item.countryInfo.flag}
-                      alt="flag"
-                    />
-                    {item.country}
-                  </MenuItem>
-                );
-              })
-            )}
-          </Select>
-        </FormControl>
-
-        {country ? (
-          <CountryWrapper>
-            <ImgWrapper>
-              <Flag src={country?.countryInfo.flag} />
-              <div>{country?.country}</div>
-            </ImgWrapper>
-
-            <InfoBoxes>
-              <p>Last update : {dateUpdate}</p>
-              <CountryStats>
-                <h3>
-                  Total cases :<br></br> {formatedNum(country?.cases)}
-                </h3>
-                <Stats className={country?.todayCases > 0 ? "red" : "green"}>
-                  +{todayCases}
-                </Stats>
-              </CountryStats>
-              <CountryStats>
-                <h3>
-                  Total deaths :<br></br> {formatedNum(country?.deaths)}
-                </h3>
-                <Stats className={country?.todayDeaths > 0 ? "red" : "green"}>
-                  +{todayDeaths}
-                </Stats>
-              </CountryStats>
-              <CountryStats>
-                <h3>
-                  Total recovered :<br></br> {formatedNum(country?.recovered)}
-                </h3>
-                <Stats
-                  className={country?.todayRecovered > 0 ? "green" : "red"}
-                >
-                  +{todayRecovered}
-                </Stats>
-              </CountryStats>
-            </InfoBoxes>
-          </CountryWrapper>
-        ) : (
-          <div>👆🏼 Select a country 👆🏼 </div>
-        )}
-      </CountryContainer>
-      <WorldContainer>
-        <WorldMap
-          data={data}
-          country={country}
-          coordinates={coordinates}
-          zoomScale={zoomScale}
-        />
-      </WorldContainer>
-    </Wrapper>
+                    +{todayRecovered}
+                  </Stats>
+                </CountryStats>
+              </InfoBoxes>
+            </CountryWrapper>
+          ) : (
+            <div>👆🏼 Select a country 👆🏼 </div>
+          )}
+        </CountryContainer>
+        <WorldContainer>
+          <WorldMap
+            data={data}
+            country={country}
+            coordinates={coordinates}
+            zoomScale={zoomScale}
+          />
+        </WorldContainer>
+      </Wrapper>
+      <Footer />
+    </Fragment>
   );
 };
 
