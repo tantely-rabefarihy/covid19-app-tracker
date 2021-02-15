@@ -138,7 +138,7 @@ const HomePage = () => {
               </InfoBoxes>
             </CountryWrapper>
           ) : (
-            <div>👆🏼 Select a country 👆🏼 </div>
+            <div>👆🏼 Select a Country 👆🏼 </div>
           )}
         </CountryContainer>
         <WorldContainer>
