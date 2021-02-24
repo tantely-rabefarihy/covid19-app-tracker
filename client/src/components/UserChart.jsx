@@ -13,8 +13,7 @@ import styled from "styled-components";
 const UserChart = ({ fireStoreUser }) => {
   const { countryData } = useContext(WorldDataContext);
 
-
-// Setting up data for the chart
+  // Setting up data for the chart
   let numCases;
   let numDeaths;
   let numRecovered;
@@ -83,7 +82,8 @@ const UserChart = ({ fireStoreUser }) => {
               fill="#49da25"
             />
           </AreaChart>
-          <FavButton>Add to my Favorites</FavButton>
+
+          {/* <FavButton>Add to my Favorites</FavButton> */}
         </ChartContainer>
       )}
     </>
