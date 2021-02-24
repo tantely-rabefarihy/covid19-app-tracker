@@ -61,7 +61,7 @@ const HomePage = () => {
   const todayRecovered = rounded(country?.todayRecovered);
 
   React.useEffect(() => {
-    console.log(wrapperRef.current.focus());
+    // console.log(wrapperRef.current.focus());
   });
   return (
     <Fragment>

@@ -29,7 +29,6 @@ export const UserProvider = ({ children }) => {
   //     };
   //   }, [userSession]);
 
-  console.log({ fireStoreUser });
   return (
     <UserContext.Provider
       value={{

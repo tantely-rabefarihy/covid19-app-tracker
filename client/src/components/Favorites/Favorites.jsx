@@ -6,17 +6,14 @@ const Favorites = () => {
   const { fireStoreUser } = useFirestoreUser();
 
   const addFavorites = async () => {
-    const addData = await db.collection("favorites").doc(fireStoreUser.uid).set()
+    const addData = await db
+      .collection("favorites")
+      .doc(fireStoreUser.uid)
+      .set();
   };
-  console.log({ fireStoreUser });
+  // console.log({ fireStoreUser });
 
-
-
-
-
-  return (<div>
-      
-  </div>);
+  return <div></div>;
 };
 
 export default Favorites;

@@ -64,7 +64,7 @@ export const SignUp = () => {
       const userCredentials = await firebase
         .auth()
         .createUserWithEmailAndPassword(email, password);
-      console.log(userCredentials);
+      // console.log(userCredentials);
 
       await db.collection("users").doc(userCredentials.user.uid).set({
         displayName: userName,
@@ -73,10 +73,10 @@ export const SignUp = () => {
         providerId: userCredentials.user.providerId,
       });
       handleRedirection(userCredentials.user.uid);
-      console.log("🎊 firestore doc written successfully 🎊");
+      // console.log("🎊 firestore doc written successfully 🎊");
     } catch (error) {
       setErrMsg(error.message);
-      console.log(error.message);
+      // console.log(error.message);
     }
   };
 
