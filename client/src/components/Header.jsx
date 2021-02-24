@@ -50,7 +50,7 @@ const Header = () => {
     history.push("/");
   };
   const classes = useStyles();
-  console.log({ fireStoreUser });
+  // console.log({ fireStoreUser });
   return (
     <AppBar position="static" className={classes.appBar}>
       <Toolbar>
