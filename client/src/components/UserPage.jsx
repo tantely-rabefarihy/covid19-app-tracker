@@ -31,10 +31,7 @@ const UserPage = () => {
   return (
     <Wrapper>
       {!userSession === undefined ? (
-        <div>
-          If you want to get more informations about a specific country, please
-          select from the dropdow menu above.
-        </div>
+        <></>
       ) : (
         <>
           <Logout />

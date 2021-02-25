@@ -43,9 +43,9 @@ const UserChart = ({ fireStoreUser }) => {
     <>
       {!countryData ? (
         <div>
-          Hi {fireStoreUser?.displayName} 👋, If you want to get historical data
-          about a specific country, please select from the dropdow menu above .
-          Enjoy!😉
+          Hi {fireStoreUser?.displayName} 👋 ! If you want to get historical
+          data about a specific country, please select from the dropdow menu
+          above. Enjoy!😉
         </div>
       ) : (
         <ChartContainer>
