@@ -77,7 +77,7 @@ const LogIn = () => {
 
   return (
     <div className={classes.root}>
-      <h2 className={classes.root}>Sign In</h2>
+      <h2 className={classes.root}>Welcome Back !</h2>
       <form className={classes.form} onSubmit={handleFormSubmit}>
         <FormControl className={clsx(classes.formControl)}>
           <TextField

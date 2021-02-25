@@ -160,6 +160,10 @@ const Wrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const CountryContainer = styled.div`
@@ -202,6 +206,8 @@ const CountryStats = styled.div`
   height: 100%;
   border-radius: 8px;
   margin: 10px 0;
+  padding: 10px 0;
+
   h3 {
     color: black;
   }
@@ -210,6 +216,7 @@ const CountryStats = styled.div`
 const Stats = styled.span`
   font-weight: bolder;
   font-size: 1.5rem;
+  margin-bottom: 20px;
 `;
 
 const WorldContainer = styled.div`

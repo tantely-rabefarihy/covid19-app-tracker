@@ -84,7 +84,7 @@ export const SignUp = () => {
 
   return (
     <div className={classes.root}>
-      <h2 className={classes.root}>SIGN UP</h2>
+      <h2 className={classes.root}>Welcome !</h2>
       <form className={classes.form} onSubmit={handleFormSubmit}>
         <FormControl className={clsx(classes.formControl)}>
           <TextField
