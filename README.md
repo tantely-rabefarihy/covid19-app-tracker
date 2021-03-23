@@ -12,12 +12,15 @@ This web app gives you the ability to track worldwide numbers related to the COV
 
 You can also create your own account in order to have access to an area chart and have a detailed evolution for a specific country.
 
-# Technologies
+# Stack
 
 - React
 - Node
 - Express
 - Firebase / Cloud Firestore
+- Styled Components
+- React Leaflet (map)
+- Recharts (chart)
 
 ## Available Scripts
 
