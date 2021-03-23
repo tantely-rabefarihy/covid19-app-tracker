@@ -42,7 +42,7 @@ const WorldMap = ({ data, country, coordinates, zoomScale }) => {
 };
 
 const Mapping = styled.div`
-  height: 600px;
+  height: 100vh;
   padding: 10px;
   border: 1px solid grey;
   border-radius: 8px;

@@ -92,6 +92,8 @@ const UserChart = ({ fireStoreUser }) => {
 
 const ChartContainer = styled.div`
   align-self: center;
+
+  
 `;
 
 const FavButton = styled.button`
