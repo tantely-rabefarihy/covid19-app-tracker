@@ -68,7 +68,6 @@ const LogIn = () => {
       // console.log(userCredentials.user.uid);
       // console.log("🎊 firestore found this user 🎊");
       handleRedirection(userCredentials.user.uid);
-      //   history.push(`/myPage/${userCredentials.user.uid}`);
     } catch (error) {
       setErrMsg(error.message);
       console.log(error);
