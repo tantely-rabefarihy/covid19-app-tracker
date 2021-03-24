@@ -9,9 +9,6 @@ import UserPage from "./components/UserPage";
 import Header from "./components/Header";
 import GlobalStyles from "./constants/GlobalStyles";
 
-
-
-
 function App() {
   return (
     <BrowserRouter>

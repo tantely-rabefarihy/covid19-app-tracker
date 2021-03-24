@@ -10,9 +10,7 @@ const GlobalStyles = createGlobalStyle`
   *,
   *:before,
   *:after {
-    /* @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); */
     box-sizing: border-box;
-    /* font-family: 'Roboto', sans-serif; */
     -webkit-font-smoothing: antialiased;
     color:white;
   }

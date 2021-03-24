@@ -1,6 +1,15 @@
 export const Footer = () => {
   return (
-    <div style={{ fontSize: "8px", color: "white", textAlign: "left" }}>
+    <div
+      style={{
+        fontSize: "8px",
+        color: "white",
+        textAlign: "left",
+        position: "absolute",
+        bottom: "0.2rem",
+        left: "3rem",
+      }}
+    >
       Icons made by{" "}
       <a href="" title="Vitaly Gorbachev">
         Vitaly Gorbachev

@@ -60,9 +60,6 @@ const HomePage = () => {
   const todayDeaths = rounded(country?.todayDeaths);
   const todayRecovered = rounded(country?.todayRecovered);
 
-  React.useEffect(() => {
-    // console.log(wrapperRef.current.focus());
-  });
   return (
     <Fragment>
       <Wrapper>
@@ -104,11 +101,11 @@ const HomePage = () => {
             <CountryWrapper>
               <ImgWrapper>
                 <Flag src={country?.countryInfo.flag} />
-                <div>{country?.country}</div>
+                <div style={{ "padding-left": "1rem" }}>{country?.country}</div>
               </ImgWrapper>
 
+              <p>Last update : {dateUpdate}</p>
               <InfoBoxes>
-                <p>Last update : {dateUpdate}</p>
                 <CountryStats>
                   <h3>
                     Total cases :<br></br> {formatedNum(country?.cases)}
@@ -149,35 +146,36 @@ const HomePage = () => {
             zoomScale={zoomScale}
           />
         </WorldContainer>
+        <Footer />
       </Wrapper>
-      <Footer />
     </Fragment>
   );
 };
 
 const Wrapper = styled.div`
+  position: relative;
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: row;
-
+  height: 70vh;
+  padding: 2rem;
   @media (max-width: 768px) {
     flex-direction: column;
+    height: 100%;
   }
 `;
 
 const CountryContainer = styled.div`
-  padding: 10px 10px;
-  height: auto;
+  padding: 0 1rem;
+  height: 100%;
   display: flex;
   flex-direction: column;
 `;
 
 const Flag = styled.img`
   border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  margin-right: 10px;
+  height: 1rem;
+  width: 1rem;
 `;
 
 const CountryWrapper = styled.div`
@@ -191,8 +189,8 @@ const ImgWrapper = styled.div`
   flex-direction: row;
   align-self: center;
   align-items: center;
-  margin-bottom: 20px;
 `;
+
 const InfoBoxes = styled.div`
   display: flex;
   flex-direction: column;
@@ -201,28 +199,31 @@ const InfoBoxes = styled.div`
 `;
 
 const CountryStats = styled.div`
-  border: 2px solid white;
   background-color: white;
-  height: 100%;
   border-radius: 8px;
-  margin: 10px 0;
-  padding: 10px 0;
+  padding: 0.5rem 0;
 
   h3 {
     color: black;
+  }
+  @media (max-width: 768px) {
+    margin: 0.5rem 0;
   }
 `;
 
 const Stats = styled.span`
   font-weight: bolder;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+  font-size: 1.2rem;
 `;
 
 const WorldContainer = styled.div`
   margin: 0 auto;
   width: 100%;
-  height: 100%;
+
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+    height: 600px;
+  }
 `;
 
 export default HomePage;
