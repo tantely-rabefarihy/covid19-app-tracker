@@ -92,15 +92,13 @@ const UserChart = ({ fireStoreUser }) => {
 
 const ChartContainer = styled.div`
   align-self: center;
-
-  
 `;
 
-const FavButton = styled.button`
-  padding: 5px;
-  color: black;
-  background-color: white;
-  cursor: pointer;
-`;
+// const FavButton = styled.button`
+//   padding: 5px;
+//   color: black;
+//   background-color: white;
+//   cursor: pointer;
+// `;
 
 export default UserChart;

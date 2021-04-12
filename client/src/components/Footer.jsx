@@ -11,7 +11,7 @@ export const Footer = () => {
       }}
     >
       Icons made by{" "}
-      <a href="" title="Vitaly Gorbachev">
+      <a href="https://www.flaticon.com/" title="Vitaly Gorbachev">
         Vitaly Gorbachev
       </a>{" "}
       from{" "}

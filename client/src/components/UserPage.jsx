@@ -1,11 +1,11 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Logout from "../auth-pages/logout";
 import { useFirestoreUser } from "../auth-pages/user-provider";
 import Country from "./Country";
 import UserChart from "./UserChart";
-import firebase, { db } from "../firebase/";
+import firebase from "../firebase/";
 
 const UserPage = () => {
   const [userSession, setUserSession] = useState();
@@ -25,8 +25,6 @@ const UserPage = () => {
       userListener();
     };
   }, [fireStoreUser]);
-
-  // console.log({ userSession });
 
   return (
     <Wrapper>

@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LogIn = () => {
+const Login = () => {
   const classes = useStyles();
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -128,4 +128,4 @@ const Error = styled.p`
   padding: 20px;
 `;
 
-export default LogIn;
+export default Login;

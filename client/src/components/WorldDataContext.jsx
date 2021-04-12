@@ -42,7 +42,7 @@ export const WorldDataProvider = ({ children }) => {
     });
 
     setCountry(chosenCountry);
-    setFormValue(chosenCountry);
+    setFormValue(chosenCountry.country);
     setCoordinates([
       chosenCountry.countryInfo.lat,
       chosenCountry.countryInfo.long,

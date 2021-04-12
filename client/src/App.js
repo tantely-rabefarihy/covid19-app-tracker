@@ -40,9 +40,8 @@ function App() {
 export default App;
 
 const Wrapper = styled.div`
-  font-size: 16px;
   text-align: center;
   width: 100%;
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 1000px;
 `;

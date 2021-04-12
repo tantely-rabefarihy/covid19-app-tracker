@@ -1,4 +1,4 @@
-import { Circle, Popup, Tooltip } from "react-leaflet";
+import { Circle, Tooltip } from "react-leaflet";
 import styled from "styled-components";
 import "../helpers/helpers.css";
 

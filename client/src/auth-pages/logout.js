@@ -17,7 +17,7 @@ const Logout = () => {
         firebase.auth().signOut();
       }, 1000);
     }
-  }, [checked]);
+  }, [checked, setFireStoreUser]);
 
   const handleChange = (e) => {
     setChecked(e.target.checked);

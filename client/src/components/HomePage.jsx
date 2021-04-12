@@ -1,5 +1,5 @@
 import "../components/Homepage.css";
-import React, { useContext } from "react";
+import React, { createRef, useContext } from "react";
 import styled from "styled-components";
 import { WorldDataContext } from "./WorldDataContext";
 import WorldMap from "./WorldMap";
@@ -39,8 +39,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const HomePage = () => {
-  const wrapperRef = React.useRef(null);
-
   const formatedNum = (num) => {
     return new Intl.NumberFormat("en").format(num);
   };
@@ -53,33 +51,37 @@ const HomePage = () => {
     getSpecificCountry,
     coordinates,
     zoomScale,
-    formValue,
   } = useContext(WorldDataContext);
   const dateUpdate = new Date(country?.updated).toLocaleString();
   const todayCases = rounded(country?.todayCases);
   const todayDeaths = rounded(country?.todayDeaths);
   const todayRecovered = rounded(country?.todayRecovered);
 
+  const wrapperRef = createRef();
+
   return (
     <Fragment>
       <Wrapper>
-        <CountryContainer>
-          <FormControl className={classes.formControl}>
+        <CountryContainer ref={wrapperRef}>
+          <FormControl ref={wrapperRef} className={classes.formControl}>
             <InputLabel className={classes.CountryLabel}>Country</InputLabel>
             <Select
               ref={wrapperRef}
               className={classes.formControl}
-              value={formValue}
+              value=""
               onChange={(e) => {
                 getSpecificCountry(e.target.value);
               }}
             >
               {isLoading ? (
-                <MenuItem value=""></MenuItem>
+                <MenuItem ref={wrapperRef} value="Loading">
+                  ...Loading
+                </MenuItem>
               ) : (
                 data?.map((item, index) => {
                   return (
                     <MenuItem
+                      ref={wrapperRef}
                       className={classes.MenuItem}
                       key={index}
                       value={item.country}
@@ -101,7 +103,7 @@ const HomePage = () => {
             <CountryWrapper>
               <ImgWrapper>
                 <Flag src={country?.countryInfo.flag} />
-                <div style={{ "padding-left": "1rem" }}>{country?.country}</div>
+                <div style={{ paddingLeft: "1rem" }}>{country?.country}</div>
               </ImgWrapper>
 
               <p>Last update : {dateUpdate}</p>
@@ -153,21 +155,21 @@ const HomePage = () => {
 };
 
 const Wrapper = styled.div`
-  position: relative;
+  /* position: relative; */
   width: 100%;
   display: flex;
   flex-direction: row;
-  height: 70vh;
-  padding: 2rem;
+  min-height: 600px;
+  height: 100%;
+  padding: 1rem 0;
+
   @media (max-width: 768px) {
     flex-direction: column;
-    height: 100%;
   }
 `;
 
 const CountryContainer = styled.div`
   padding: 0 1rem;
-  height: 100%;
   display: flex;
   flex-direction: column;
 `;
@@ -217,8 +219,8 @@ const Stats = styled.span`
 `;
 
 const WorldContainer = styled.div`
-  margin: 0 auto;
   width: 100%;
+  min-height: 600px;
 
   @media (max-width: 768px) {
     margin-top: 1rem;

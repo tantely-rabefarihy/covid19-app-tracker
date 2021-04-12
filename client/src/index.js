@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { WorldDataProvider } from "./components/WorldDataContext";
-import Firebase, { FirebaseProvider } from "./firebase/";
+import { FirebaseProvider } from "./firebase/";
 import { UserProvider } from "./auth-pages/user-provider";
 ReactDOM.render(
   <React.StrictMode>

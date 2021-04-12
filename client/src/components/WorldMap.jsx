@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
 
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
@@ -11,18 +11,18 @@ function GoToPosition() {
 
   useEffect(() => {
     map.setView(coordinates, zoomScale);
-  }, [country]);
+  }, [country, coordinates, zoomScale, map]);
   return null;
 }
 
-const WorldMap = ({ data, country, coordinates, zoomScale }) => {
+const WorldMap = ({ data }) => {
   const currentPosition = [45.508888, -73.561668];
   const defaultScaling = 2;
 
   return (
     <Mapping>
       <MapContainer
-        style={{ height: "100%", borderRadius: "8px" }}
+        style={{ height: "100%", borderRadius: "5px" }}
         center={currentPosition}
         zoom={defaultScaling}
         scrollWheelZoom={false}
@@ -32,7 +32,7 @@ const WorldMap = ({ data, country, coordinates, zoomScale }) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Marker position={currentPosition}>
-          <Popup>This is Home.</Popup>
+          <Popup>This is my home.</Popup>
         </Marker>
         <GoToPosition />
         {data && displayCountryNum(data)}
