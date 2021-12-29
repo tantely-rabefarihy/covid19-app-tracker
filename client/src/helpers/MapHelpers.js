@@ -19,7 +19,7 @@ export const displayCountryNum = (data, casesType = "cases") => {
       <Circle
         key={index}
         center={[country.countryInfo.lat, country.countryInfo.long]}
-        radius={Math.floor((country.cases * 10) / 100)}
+        radius={Math.floor(country.todayCases * 2 )}
         color={"red"}
         fillColor={"red"}
       >
